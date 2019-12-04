@@ -97,8 +97,8 @@ theme: Butterfly
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/mrgaodi/mrgaodi.github.io.git
-    # github: git@github.com:mrgaodi/mrgaodi.github.io.git
+  repository: # https://github.com/mrgaodi/mrgaodi.github.io.git
+    github: git@github.com:mrgaodi/mrgaodi.github.io.git
     # gitee: git@gitee.com:mrgaodi/mrgaodi.git
     # coding: git@git.dev.tencent.com:mrgaodi/mrgaodi.coding.me.git
   branch: master
