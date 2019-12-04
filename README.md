@@ -1,2 +1,0 @@
-# mrgaodi.github.io
-blog
