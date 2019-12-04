@@ -138,5 +138,5 @@ douban:
 
 # music player
 aplayer:
-  meting: false
+  meting: true
 
