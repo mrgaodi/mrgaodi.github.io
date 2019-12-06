@@ -70,8 +70,14 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 到你文件的下载目录下，执行如下操作：
 
 ``` bash
+# 解压文件
 $ tar -xzvf jdk-8u161-linux-x64.tar.gz
+# 将文件移动到/usr/lib/下
+$ sudo mkdir /usr/lib/jdk
+$ sudo mv jdk1.8.0_161/ /usr/lib/jdk/
 ```
+
+修改`/etc/`
 
 ### Hexo博客
 
