@@ -59,6 +59,12 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
+更新源：
+
+``` bash
+$ sudo apt update
+```
+
 ### JDK
 
 下载linux系统的jdk。
@@ -79,7 +85,7 @@ $ sudo mv jdk1.8.0_161/ /usr/lib/jdk/
 
 修改`/etc/profile`文件，在文件末尾添加如下内容：
 
-```vim
+``` vim
 #set java env
 export JAVA_HOME=/usr/lib/jdk/jdk1.8.0_161  # 记得修改成你的jdk文件夹名
 export JRE_HOME=${JAVA_HOME}/jre
@@ -96,12 +102,34 @@ source /etc/profile
 注册服务并建立软链接
 
 ``` bash
-update-alternatives --install /usr/bin/java java /usr/lib/jdk/jdk1.8.0_161/bin/java 300
+$ update-alternatives --install /usr/bin/java java /usr/lib/jdk/jdk1.8.0_161/bin/java 300
 
-update-alternatives --install /usr/bin/javac javac /usr/lib/jdk/jdk1.8.0_161/bin/javac 300
+$ update-alternatives --install /usr/bin/javac javac /usr/lib/jdk/jdk1.8.0_161/bin/javac 300
 ```
 
-### Hexo博客
+查看安装是否成功：
+
+``` bash
+```
+
+### Hexo
+
+- git
+
+``` bash
+```
+
+- nodejs
+``` bash
+```
+
+- npm
+``` bash
+```
+
+- hexo-cli
+``` bash
+```
 
 ### Python
 
