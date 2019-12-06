@@ -77,7 +77,29 @@ $ sudo mkdir /usr/lib/jdk
 $ sudo mv jdk1.8.0_161/ /usr/lib/jdk/
 ```
 
-修改`/etc/`
+修改`/etc/profile`文件，在文件末尾添加如下内容：
+
+```vim
+#set java env
+export JAVA_HOME=/usr/lib/jdk/jdk1.8.0_161  # 记得修改成你的jdk文件夹名
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+```
+
+重新加载`/etc/profile`
+
+``` bash
+source /etc/profile
+```
+
+注册服务并建立软链接
+
+``` bash
+update-alternatives --install /usr/bin/java java /usr/lib/jdk/jdk1.8.0_161/bin/java 300
+
+update-alternatives --install /usr/bin/javac javac /usr/lib/jdk/jdk1.8.0_161/bin/javac 300
+```
 
 ### Hexo博客
 
