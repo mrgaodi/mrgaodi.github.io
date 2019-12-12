@@ -1,18 +1,18 @@
 ---
-title: 愉快的使用ubuntu18.04——美化篇
+title: 我的ubuntu18.04——美化篇
 date: 2019-11-27 17:02:32
 tags: 
-    - Ubuntu18.04
-    - Gnome桌面美化
+    - Ubuntu
+    - 系统美化
 top_img: https://s2.ax1x.com/2019/12/03/QQuKXQ.png
 cover: https://s2.ax1x.com/2019/12/03/QQul0s.md.png
 categories: 
-    - Ubuntu18.04
-    - Gnome3桌面美化
+    - Ubuntu
+    - 系统美化
 keywords: 
     - Ubuntu
-    - Gnome
-    - 美化
+    - Gnome桌面
+    - 系统美化
 description: 不美翻自己，怎么快乐的敲代码。
 ---
 

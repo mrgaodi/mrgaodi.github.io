@@ -19,7 +19,7 @@ menu:
 
 # Favicon
 # ---------------
-favicon: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/image/favicon32x32.ico
+favicon: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/image/favicon05.ico
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -258,7 +258,7 @@ Flink:
   info_headline: 我的Blog资料
   name: Blog 名字： Mr GaoDi
   address: Blog 地址： https://mrgaodi.github.io/
-  avatar: Blog 头像： https://mrgaodi.github.io/img/avatar.jpg
+  avatar: Blog 头像： https://mrgaodi.github.io/img/avatar.ico
   info: Blog 简介： 祈祷奇迹，其实不如无尽的练习。
   comment: 如果需要交换友链,请留言
 
