@@ -1,7 +1,5 @@
 ---
-title: 分类
-date: 2019-11-24 20:08:22
+title: categories
+date: 2020-02-24 13:36:33
 type: "categories"
-top_img: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/image/categories_img.jpg
-comments: false
 ---

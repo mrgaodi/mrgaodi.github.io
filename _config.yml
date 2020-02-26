@@ -3,14 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: MrGD
-subtitle: '' #'个人小站'
-description: '' # '记录生活中的种种小事'
-keywords: # 记录 生活 小站
-author: Mr GaoDi
+title: Gao·Di
+subtitle: ''
+description: ''
+keywords: GaoDi
+author: GaoDi
 language: zh-CN
 timezone: ''
-
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -19,7 +18,8 @@ root: /
 permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing index.html from permalinks
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
@@ -49,9 +49,11 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace: ''
+  wrap: true
+  hljs: false
 
 # Home page setting
-# path: Root pathlink for your blogs index page. (default = '')
+# path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
@@ -91,52 +93,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Butterfly
+theme: diaspora
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: # https://github.com/mrgaodi/mrgaodi.github.io.git
-    github: git@github.com:mrgaodi/mrgaodi.github.io.git
-    # gitee: git@gitee.com:mrgaodi/mrgaodi.git
-    # coding: git@git.dev.tencent.com:mrgaodi/mrgaodi.coding.me.git
+  repo: git@github.com:mrgaodi/mrgaodi.github.io.git
   branch: master
-
-
-# algolia-search
-algolia:
-  appId: "SEPMJP5020"
-  apiKey: "4c5dbed062123bfc76890a88b7342c37"
-  adminApiKey: "aaeeec939ff5b0ef02ceb7725f18c1cd"
-  chunkSize: 5000
-  indexName: "my-hexo-blog"
-  fields:
-    - content:strip:truncate,0,500
-    - excerpt:strip
-    - gallery
-    - permalink
-    - photos
-    - slug
-    - tags
-    - title
-
-# douban
-douban:
-  user: 206350265
-  builtin: true
-  # book:
-  #   title: 'This is my book title'
-  #   quote: 'This is my book quote'
-  movie:
-    title: '影视'
-    quote: '影视'
-  # game:
-  #   title: 'This is my game title'
-  #   quote: 'This is my game quote'
-  timeout: 10000 
-
-# music player
-aplayer:
-  meting: true
-
