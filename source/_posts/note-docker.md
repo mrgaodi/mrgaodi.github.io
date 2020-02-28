@@ -36,8 +36,8 @@ $ sudo docker run -itd --name mysql \
 \-v：挂载到磁盘，数据持久化  
 \-p：端口映射，docker容器的`3306`端口映射到宿主机的`13306`端口  
 \-e：添加变量，使用123456作为MySQL中root用户的密码  
-\--name：docker容器命名  
-\--restart: 容器是否跟随docker一同启动，always同时启动。
+\-\-name：docker容器命名  
+\-\-restart: 容器是否跟随docker一同启动，always同时启动。
 ### 运行Redis数据库  
 ``` bash
 $ sudo docker run -itd -p 16379:6379 \
@@ -45,8 +45,8 @@ $ sudo docker run -itd -p 16379:6379 \
 --name redis redis:5 redis-server \
 --appendonly yes --requirepass "123456"
 ```
-\--appendonly yes：开启Redis的AOF模式  
-\--requirepass：设置Redis的密码  
+\-\-appendonly yes：开启Redis的AOF模式  
+\-\-requirepass：设置Redis的密码  
 进入Linux容器的命令：
 ``` bash
 $ sudo docker exec -it redis bash
