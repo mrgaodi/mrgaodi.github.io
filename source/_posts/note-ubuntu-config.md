@@ -3,7 +3,6 @@ title: 笔记-Ubuntu配置
 date: 2020-02-25 12:29:33
 tags:
     - Ubuntu
-    - 笔记
 categories:
     - 笔记
 cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-002.jpg

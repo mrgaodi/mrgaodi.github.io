@@ -3,7 +3,6 @@ title: 笔记-Ubuntu美化
 date: 2020-02-25 15:11:47
 tags:
     - Ubuntu
-    - 笔记
 categories: 
     - 笔记
 cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-001.jpg
