@@ -2,7 +2,7 @@
 <div id="screen">
     <div id="mark">
         <div class="layer" data-depth="0.4">
-            <%- image_tag(theme.welcome_cover || first.cover || theme.cover, {id: "cover", crossorigin: "anonymous", width: 1920, height: 1080}) %>
+            <%- image_tag(theme.welcome_cover || first.cover || "/img/welcome-cover.jpg", {id: "cover", crossorigin: "anonymous", width: 1920, height: 1080}) %>
         </div>
     </div>
     <div id="vibrant">
@@ -13,8 +13,11 @@
     </div>
     <div id="header">
         <div>
-            <a class="image-logo" style="-webkit-mask-box-image:url('<%- theme.logo%>'); mask-image:url('<%- theme.logo%>');" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+            <a class="image-logo" href="/"></a>
+			<% if (theme.local_search.enable){ %>
+			<div class="iconfont icon-search switchsearch" href="/search/" title="搜索"></div>
+			<%}%>
+            <div class="iconfont icon-menu switchmenu"></div>
         </div>
     </div>
     <% if ( first ) { %>
