@@ -89,8 +89,5 @@ google_analytics:
 # 网站ico
 favicon: /img/favicon.png
 
-# 网站logo
-logo: /img/logo.png
-
 # rss文件
 rss: atom.xml
