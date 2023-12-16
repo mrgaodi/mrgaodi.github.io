@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>笔记-Docker容器运行</title>
+    <url>/posts/8fc7338f</url>
+    <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历</strong></p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><p>在<code>/etc/docker</code>目录下创建<code>daemon.json</code>文件，并添加如下内容：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;https://kfwkfulq.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://2lqq34jg.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://pee6w651.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://registry.docker-cn.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;dns&quot;</span>: [<span class="string">&quot;8.8.8.8&quot;</span>,<span class="string">&quot;8.8.4.4&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行MySQL数据库"><a href="#运行MySQL数据库" class="headerlink" title="运行MySQL数据库"></a>运行MySQL数据库</h3><ul>
+<li>拉取mysql5.7的镜像<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+mysql5.7的配置文件：<a href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/my.cnf">my.cnf</a>  </li>
+<li>运行一个mysql5.7镜像的容器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -itd \</span><br><span class="line">--name=mysql \</span><br><span class="line">-v <span class="variable">$PWD</span>/MySQL/data:/var/lib/mysql \</span><br><span class="line">-v <span class="variable">$PWD</span>/MySQL/config/my.cnf:/etc/mysql/my.cnf \</span><br><span class="line">-p 13306:3306 \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">mysql:5.7</span><br></pre></td></tr></table></figure>
+-d：后台运行<br>-v：挂载到磁盘，数据持久化<br>-p：端口映射，docker容器的<code>3306</code>端口映射到宿主机的<code>13306</code>端口<br>-e：添加变量，使用123456作为MySQL中root用户的密码<br>--name：docker容器命名<br>--restart: 容器是否跟随docker一同启动，always同时启动。<br>--privileged：赋予容器root用户真正的root权限  </li>
+<li>进入mysql容器的命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it mysql bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行Redis数据库"><a href="#运行Redis数据库" class="headerlink" title="运行Redis数据库"></a>运行Redis数据库</h3><ul>
+<li>拉取redis5的镜像<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker pull redis:5-alpine</span><br></pre></td></tr></table></figure></li>
+<li>从GitHub上获取对应版本的redis配置文件<br>reids的GitHub地址：<a href="https://github.com/antirez/redis">https://github.com/antirez/redis</a><br>将文件放到指定位置。($PWD&#x2F;Redis&#x2F;conf&#x2F;redis.conf)，修改配置文件的配置。</li>
+<li>运行一个redis5镜像的容器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -itd \</span><br><span class="line">-p 16379:6379 \</span><br><span class="line">-v <span class="variable">$PWD</span>/Redis/data:/data \</span><br><span class="line">-v <span class="variable">$PWD</span>/Redis/conf/redis.conf:/etc/redis/redis.conf \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">--name=redis \</span><br><span class="line">redis:5-alpine \</span><br><span class="line">redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure></li>
+<li>进入redis容器的命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it redis sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行node容器"><a href="#运行node容器" class="headerlink" title="运行node容器"></a>运行node容器</h3><ul>
+<li>拉取node12的镜像<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker pull node:12-alpine</span><br></pre></td></tr></table></figure></li>
+<li>运行一个node12镜像的容器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -itd -p 14000:4000 \</span><br><span class="line">-v <span class="variable">$PWD</span>/hexo:/root --restart=always \</span><br><span class="line">--name node node:12-alpine</span><br></pre></td></tr></table></figure></li>
+<li>进入alpine容器的命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it node sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行flink容器"><a href="#运行flink容器" class="headerlink" title="运行flink容器"></a>运行flink容器</h3><ul>
+<li>拉取flink的镜像<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker pull flink:1.9.3-scala_2.11</span><br></pre></td></tr></table></figure></li>
+<li>flink的配置文件<br><a href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/flink-conf.yaml">flink-conf.yaml</a></li>
+<li>创建docker的桥接网络<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker network create flink-net -d bridge</span><br></pre></td></tr></table></figure></li>
+<li>运行flink容器（jobmanager）<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -itd --name=flink-jmr \</span><br><span class="line">-p 18081:8081 \</span><br><span class="line">-e JOB_MANAGER_RPC_ADDRESS=flink-jmr \</span><br><span class="line">--network=flink-net \</span><br><span class="line">-v <span class="variable">$PWD</span>/jmr/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml \</span><br><span class="line">flink:1.9.3-scala_2.11 jobmanager</span><br></pre></td></tr></table></figure></li>
+<li>运行flink容器（taskmanager）<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run -itd --name=flink-tmr01 \</span><br><span class="line">-e JOB_MANAGER_RPC_ADDRESS=flink-jmr \</span><br><span class="line">--network=flink-net \</span><br><span class="line">-v <span class="variable">$PWD</span>/tmr01/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml \</span><br><span class="line">flink:1.9.3-scala_2.11 taskmanager</span><br></pre></td></tr></table></figure>
+--network：容器所在网络，互相间可以通过名称进行访问。<br>--JOB_MANAGER_RPC_ADDRESS：jobmanager服务的地址</li>
+<li>进入flink容器的命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it flink-jmr bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>笔记-Ubuntu美化</title>
+    <url>/posts/876b22cb</url>
+    <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程</strong></p>
+<ul>
+<li>安装gnome-tweak-tool  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure></li>
+<li>安装gnome-shell-extensions  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gnome-shell-extensions</span><br></pre></td></tr></table></figure></li>
+<li>安装gnome-shell-extension-dashtodock  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gnome-shell-extension-dashtodock</span><br></pre></td></tr></table></figure>
+安装完以上3个软件后，重启下电脑</li>
+</ul>
+<ol>
+<li>找到安装好的“<code>优化</code>”软件，点“<code>扩展</code>”，打开“<code>User themes</code>”插件，在“<code>优化</code>”首页，选择主题、图标和shell的样式。  <table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-001.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-002.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+<li>在“<code>扩展</code>”中找到“<code>Dash to dock</code>”，点“<code>⚙</code>”，取消“<code>面板模式：延伸到屏幕边缘</code>”的勾选。———<em>注意：不要打开该扩展，不然会出现两个dock。</em><table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-003.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-004.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+<li>下载桌面主题和图标<br>gnome主题下载网址：<a href="https://www.gnome-look.org/">https://www.gnome-look.org/</a><br>我使用的主题和图标：<br>桌面主题是：<a href="https://www.pling.com/s/Gnome/p/1275087/">McMojave</a><br>图标主题：<a href="https://www.pling.com/s/Gnome/p/1166289/">Papirus</a><br>shell主题：McMojave 自带的shell主题  </li>
+<li>美化结果：<table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-005.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-006.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+</ol>
+<ul>
+<li>终端<br>打开本地的终端配置文件<code>~/.bashrc</code>，按以下内容修改<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;$color_prompt&quot;</span> = yes ]; then</span><br><span class="line">    # PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#x27;</span> 原本的配置</span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;36m\]&gt;\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] \[\033[01;32m\]\$\[\033[00m\] &#x27;</span> 修改之后的配置</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    # PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &#x27;</span> 原来的配置</span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;&gt; \W \$ &#x27;</span> 修改之后的配置</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+[\033[01;34m]：字符颜色<br>\W：终端上只显示当前文件夹的名字<br>\w：显示全部文件路径<br>\h：机器名<br>\u：用户名  </li>
+<li>修改登陆界面的背景<br>选择一张喜欢的图片放到<code>/usr/share/backgrounds/</code>目录下。<br>打开<code>/etc/alternatives/gdm3.css</code>，找到<code>lockDialogGroup</code>对其进行修改。</li>
+</ul>
+<pre><code class="vim">#lockDialogGroup &#123;
+    /* background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png); */
+    background: #2c001e url(file:///usr/share/backgrounds/xxx.jpg);  /*你选择的图片的路径*/
+    background-repeat: no-repeat; /* repeat */
+    background-size: cover; /*新增*/
+    background-position: center; /*新增*/
+    &#125;
+</code></pre>
+<p>重启电脑，再次打开时你就会发现登陆界面的背景已经变成了你选择的图片了。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>笔记-Ubuntu配置</title>
+    <url>/posts/94fe0e80</url>
+    <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息</strong></p>
+<h2 id="Python3配置"><a href="#Python3配置" class="headerlink" title="Python3配置"></a>Python3配置</h2><ul>
+<li>pip换国内源<br>进入到个人的家目录（<code>~</code>）下，在该目录下创建<code>.pip</code>文件夹，在<code>pip</code>文件夹下创建<code>pip.conf</code>文件，并在<code>pip.conf</code>文件下添加内容如下：<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">timeout = <span class="number">6000</span></span><br><span class="line"><span class="built_in">index</span>-url = https://pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.<span class="keyword">cn</span></span><br></pre></td></tr></table></figure></li>
+<li>virtualenvwrapper配置python3<br>Ubuntu18.04默认只安装了python3，所以安装virtualenvwrapper后需要进行python3的配置。<br>虽然python已经自带了创建虚拟环境的命令<code>python -m venv 虚拟环境名</code>，现在virtualenv和virtualenvwrapper的用处不是很大了。ㄟ( ▔, ▔ )ㄏ<br>在家目录（<code>~</code>）下找到<code>.bashrc</code>文件，并添加内容如下：<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># 配置virtualenvwrapper</span><br><span class="line">export WORKON_HOME=$HOME/.virtualenvs</span><br><span class="line">export PROJECT_HOME=$HOME/workspace</span><br><span class="line">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/<span class="keyword">python3</span></span><br><span class="line"><span class="keyword">source</span> ~/.local/bin/virtualenvwrapper.<span class="keyword">sh</span></span><br><span class="line"># 指定virtualenv的路径</span><br><span class="line">export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv</span><br></pre></td></tr></table></figure>
+<em>注意：pip命令安装出来的virtualenvwrapper和virtualenv在不同的Ubuntu系统中，位置是不同的。</em></li>
+</ul>
+<h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><p>没啥好说的，打开<code>/etc/vim/vimrc</code>添加内容如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="comment">&quot; 配置</span></span><br><span class="line"><span class="comment">&quot; 开启文件检测</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span></span><br><span class="line"><span class="comment">&quot; 缩进</span></span><br><span class="line"><span class="keyword">set</span> autoindent</span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> expandtab</span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">4</span></span><br><span class="line"><span class="comment">&quot; 外观</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">nu</span></span><br><span class="line"><span class="keyword">set</span> textwidth=<span class="number">80</span></span><br><span class="line"><span class="keyword">set</span> ruler</span><br><span class="line"><span class="comment">&quot; 搜索</span></span><br><span class="line"><span class="keyword">set</span> showmatch</span><br><span class="line"><span class="keyword">set</span> hlsearch</span><br><span class="line"><span class="keyword">set</span> incsearch</span><br><span class="line"><span class="keyword">set</span> ignorecase</span><br></pre></td></tr></table></figure>
+<h2 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h2><p>下载Linux版的jdk<br>提供一个jdk1.8的包——<a href="https://pan.baidu.com/s/1ZCvfVAZzVPLzirRBefcn0g">jdk-8u161-linux-x64.tar.gz</a><br>提取码: 5rja<br>解压压缩包，获的jdk的文件夹<code>jdk1.8.0_161</code>，将文件夹放到合适的位置。<br>修改<code>/etc/profile</code>文件，在文件末尾添加内容如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">#set java env</span><br><span class="line">export JAVA_HOME=/usr/lib/jdk/jdk1.<span class="number">8.0</span>_161  # 记得修改成你的jdk文件夹名</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>重新加载&#x2F;etc&#x2F;profile  </p>
+<pre><code class="bash">$ source /etc/profile
+</code></pre>
+<p>注册服务并建立软链接  </p>
+<pre><code class="bash">$ update-alternatives --install /usr/bin/java \
+java /usr/lib/jdk/jdk1.8.0_161/bin/java 300
+$ update-alternatives --install /usr/bin/javac \
+javac /usr/lib/jdk/jdk1.8.0_161/bin/javac 300
+</code></pre>
+<p>查看安装是否成功：  </p>
+<pre><code class="bash">$ java -version  
+java version &quot;1.8.0_161&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_161-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
+</code></pre>
+<p>返回Java版本信息，则配置成功。</p>
+<h2 id="Ubuntu换清华源"><a href="#Ubuntu换清华源" class="headerlink" title="Ubuntu换清华源"></a>Ubuntu换清华源</h2><p>参考链接：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>笔记-hexo博客的搭建</title>
+    <url>/posts/a38dff7b</url>
+    <content><![CDATA[<h3 id="运行docker的node容器"><a href="#运行docker的node容器" class="headerlink" title="运行docker的node容器"></a>运行docker的node容器</h3><p><a href="../3">笔记-Docker容器运行</a></p>
+<h3 id="在docker的node容器中搭建hexo博客——简单记载"><a href="#在docker的node容器中搭建hexo博客——简单记载" class="headerlink" title="在docker的node容器中搭建hexo博客——简单记载"></a>在docker的node容器中搭建hexo博客——简单记载</h3><ol>
+<li>进入node-alpine容器，修改apk命令的数据源：<br>a. 打开<code>/etc/apk/repositories</code><br>b. 将里面的<code>dl-cdn.alpinelinux.org</code>改成<code>mirrors.aliyun.com</code>，保存退出即可<br>c. 执行：<code>apk update</code>  </li>
+<li>安装git、openssh-client、hexo-cli：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ apk add git</span><br><span class="line">$ apk add openssh-client</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+npm淘宝源：<code>--registry=https://registry.npm.taobao.org</code>  </li>
+<li>创建博客所在的文件，进入文件中，执行初始化命令：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line"><span class="comment"># 如果初始没有彻底成功，在npm下载插件的时候报错执行下面命令:</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></li>
+<li>去GitHub找自己喜欢的hexo主题</li>
+<li>连接到GitHub<br>a. 设置git的用户和邮箱  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;your name&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;your@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+b. 生成密钥<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C your@email.com</span><br></pre></td></tr></table></figure>
+c. 将<code>~/.ssh/</code>目录下的<code>id_rsa.pub</code>文件内容复制到GitHub上，并测试。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+当返回 “<code>Hi your name！you&#39;ve successfully authenticated ...</code>“，表示你已经连接GitHub成功。</li>
+<li>hexo上传到GitHub的插件——<code>hexo-deployer-git</code><br>修改博客根目录下的<code>_config.yml</code>文件  <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:mrgaodi/mrgaodi.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+使用 <code>hexo g</code> &amp;&amp; <code>hexo d</code> 进行提交  </li>
+<li>博客备份<br>a. 从GitHub上把自己的仓库拉下来，进入拉取的文件夹内，将除<code>.git</code>和<code>.gitignore</code>外的文件全部清空，把本地博客文件夹下的内容copy的仓库文件夹中，编写<code>.gitignore</code>文件，选择哪些文件不上传到GitHub。<br>b. git创建一个新分支<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 新建本地分支</span></span><br><span class="line">$ git branch hexo</span><br><span class="line"><span class="comment"># 切换到新分支</span></span><br><span class="line">$ git checkout hexo</span><br><span class="line"><span class="comment"># 将本地分支推送到GitHub上</span></span><br><span class="line">$ git push origin hexo</span><br><span class="line"><span class="comment"># 提交代码到GitHub上</span></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">&#x27;提交的笔记&#x27;</span></span><br><span class="line">$ git push origin hexo</span><br></pre></td></tr></table></figure>
+附：我的<code>.gitinore</code>内容<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.<span class="built_in">log</span></span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">package-lock.json</span><br><span class="line">yarn.lock</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+</search>

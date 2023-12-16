@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>笔记-Docker容器运行 - Gao·Di</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="GaoDi,"> 
+    <meta name="description" content="笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历
+Docker更换镜像源在/etc/docker目录下创建daemon.json文件，并添加如下内容：
+12345678910&amp;#123,"> 
+    <meta name="author" content="GaoDi"> 
+    <link rel="alternative" href="atom.xml" title="Gao·Di" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="笔记-Docker容器运行 - Gao·Di"/>
+    <meta name="twitter:description" content="笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历
+Docker更换镜像源在/etc/docker目录下创建daemon.json文件，并添加如下内容：
+12345678910&amp;#123,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Gao·Di"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="笔记-Docker容器运行 - Gao·Di"/>
+    <meta property="og:description" content="笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历
+Docker更换镜像源在/etc/docker目录下创建daemon.json文件，并添加如下内容：
+12345678910&amp;#123,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Gao·Di</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrgaodi.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">笔记-Docker容器运行</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">笔记-Docker容器运行</h1>
+        <div class="stuff">
+            <span>二月 27, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><strong>笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历</strong></p>
+<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><p>在<code>/etc/docker</code>目录下创建<code>daemon.json</code>文件，并添加如下内容：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;https://kfwkfulq.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://2lqq34jg.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://pee6w651.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://registry.docker-cn.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;dns&quot;</span>: [<span class="string">&quot;8.8.8.8&quot;</span>,<span class="string">&quot;8.8.4.4&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行MySQL数据库"><a href="#运行MySQL数据库" class="headerlink" title="运行MySQL数据库"></a>运行MySQL数据库</h3><ul>
+<li>拉取mysql5.7的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+mysql5.7的配置文件：<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/my.cnf">my.cnf</a>  </li>
+<li>运行一个mysql5.7镜像的容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd \</span><br><span class="line">--name=mysql \</span><br><span class="line">-v <span class="variable">$PWD</span>/MySQL/data:/var/lib/mysql \</span><br><span class="line">-v <span class="variable">$PWD</span>/MySQL/config/my.cnf:/etc/mysql/my.cnf \</span><br><span class="line">-p 13306:3306 \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">mysql:5.7</span><br></pre></td></tr></table></figure>
+-d：后台运行<br>-v：挂载到磁盘，数据持久化<br>-p：端口映射，docker容器的<code>3306</code>端口映射到宿主机的<code>13306</code>端口<br>-e：添加变量，使用123456作为MySQL中root用户的密码<br>--name：docker容器命名<br>--restart: 容器是否跟随docker一同启动，always同时启动。<br>--privileged：赋予容器root用户真正的root权限  </li>
+<li>进入mysql容器的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it mysql bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行Redis数据库"><a href="#运行Redis数据库" class="headerlink" title="运行Redis数据库"></a>运行Redis数据库</h3><ul>
+<li>拉取redis5的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull redis:5-alpine</span><br></pre></td></tr></table></figure></li>
+<li>从GitHub上获取对应版本的redis配置文件<br>reids的GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/antirez/redis">https://github.com/antirez/redis</a><br>将文件放到指定位置。($PWD&#x2F;Redis&#x2F;conf&#x2F;redis.conf)，修改配置文件的配置。</li>
+<li>运行一个redis5镜像的容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd \</span><br><span class="line">-p 16379:6379 \</span><br><span class="line">-v <span class="variable">$PWD</span>/Redis/data:/data \</span><br><span class="line">-v <span class="variable">$PWD</span>/Redis/conf/redis.conf:/etc/redis/redis.conf \</span><br><span class="line">--restart=always \</span><br><span class="line">--privileged=<span class="literal">true</span> \</span><br><span class="line">--name=redis \</span><br><span class="line">redis:5-alpine \</span><br><span class="line">redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure></li>
+<li>进入redis容器的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it redis sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行node容器"><a href="#运行node容器" class="headerlink" title="运行node容器"></a>运行node容器</h3><ul>
+<li>拉取node12的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull node:12-alpine</span><br></pre></td></tr></table></figure></li>
+<li>运行一个node12镜像的容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd -p 14000:4000 \</span><br><span class="line">-v <span class="variable">$PWD</span>/hexo:/root --restart=always \</span><br><span class="line">--name node node:12-alpine</span><br></pre></td></tr></table></figure></li>
+<li>进入alpine容器的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it node sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运行flink容器"><a href="#运行flink容器" class="headerlink" title="运行flink容器"></a>运行flink容器</h3><ul>
+<li>拉取flink的镜像<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker pull flink:1.9.3-scala_2.11</span><br></pre></td></tr></table></figure></li>
+<li>flink的配置文件<br><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/flink-conf.yaml">flink-conf.yaml</a></li>
+<li>创建docker的桥接网络<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker network create flink-net -d bridge</span><br></pre></td></tr></table></figure></li>
+<li>运行flink容器（jobmanager）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd --name=flink-jmr \</span><br><span class="line">-p 18081:8081 \</span><br><span class="line">-e JOB_MANAGER_RPC_ADDRESS=flink-jmr \</span><br><span class="line">--network=flink-net \</span><br><span class="line">-v <span class="variable">$PWD</span>/jmr/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml \</span><br><span class="line">flink:1.9.3-scala_2.11 jobmanager</span><br></pre></td></tr></table></figure></li>
+<li>运行flink容器（taskmanager）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run -itd --name=flink-tmr01 \</span><br><span class="line">-e JOB_MANAGER_RPC_ADDRESS=flink-jmr \</span><br><span class="line">--network=flink-net \</span><br><span class="line">-v <span class="variable">$PWD</span>/tmr01/flink-conf.yaml:/opt/flink/conf/flink-conf.yaml \</span><br><span class="line">flink:1.9.3-scala_2.11 taskmanager</span><br></pre></td></tr></table></figure>
+--network：容器所在网络，互相间可以通过名称进行访问。<br>--JOB_MANAGER_RPC_ADDRESS：jobmanager服务的地址</li>
+<li>进入flink容器的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker <span class="built_in">exec</span> -it flink-jmr bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=468176711.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="82e4646b42761428bdc5"
+        data-cs="f3c1963d2ce3c608bb9cf91cb8bad064c1e66f09"
+        data-r="mrgaodi.github.io"
+        data-o="mrgaodi"
+        data-a="mrgaodi"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

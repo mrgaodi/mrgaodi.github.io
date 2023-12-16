@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>笔记-Ubuntu配置 - Gao·Di</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="GaoDi,"> 
+    <meta name="description" content="笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息
+Python3配置
+pip换国内源进入到个人的家目录（~）下，在该目录下创建.pip文件夹，在pip文件夹下创建,"> 
+    <meta name="author" content="GaoDi"> 
+    <link rel="alternative" href="atom.xml" title="Gao·Di" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="笔记-Ubuntu配置 - Gao·Di"/>
+    <meta name="twitter:description" content="笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息
+Python3配置
+pip换国内源进入到个人的家目录（~）下，在该目录下创建.pip文件夹，在pip文件夹下创建,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Gao·Di"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="笔记-Ubuntu配置 - Gao·Di"/>
+    <meta property="og:description" content="笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息
+Python3配置
+pip换国内源进入到个人的家目录（~）下，在该目录下创建.pip文件夹，在pip文件夹下创建,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Gao·Di</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrgaodi.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">笔记-Ubuntu配置</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">笔记-Ubuntu配置</h1>
+        <div class="stuff">
+            <span>二月 25, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><strong>笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息</strong></p>
+<h2 id="Python3配置"><a href="#Python3配置" class="headerlink" title="Python3配置"></a>Python3配置</h2><ul>
+<li>pip换国内源<br>进入到个人的家目录（<code>~</code>）下，在该目录下创建<code>.pip</code>文件夹，在<code>pip</code>文件夹下创建<code>pip.conf</code>文件，并在<code>pip.conf</code>文件下添加内容如下：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">timeout = <span class="number">6000</span></span><br><span class="line"><span class="built_in">index</span>-url = https://pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.<span class="keyword">cn</span></span><br></pre></td></tr></table></figure></li>
+<li>virtualenvwrapper配置python3<br>Ubuntu18.04默认只安装了python3，所以安装virtualenvwrapper后需要进行python3的配置。<br>虽然python已经自带了创建虚拟环境的命令<code>python -m venv 虚拟环境名</code>，现在virtualenv和virtualenvwrapper的用处不是很大了。ㄟ( ▔, ▔ )ㄏ<br>在家目录（<code>~</code>）下找到<code>.bashrc</code>文件，并添加内容如下：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 配置virtualenvwrapper</span><br><span class="line">export WORKON_HOME=$HOME/.virtualenvs</span><br><span class="line">export PROJECT_HOME=$HOME/workspace</span><br><span class="line">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/<span class="keyword">python3</span></span><br><span class="line"><span class="keyword">source</span> ~/.local/bin/virtualenvwrapper.<span class="keyword">sh</span></span><br><span class="line"># 指定virtualenv的路径</span><br><span class="line">export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv</span><br></pre></td></tr></table></figure>
+<em>注意：pip命令安装出来的virtualenvwrapper和virtualenv在不同的Ubuntu系统中，位置是不同的。</em></li>
+</ul>
+<h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><p>没啥好说的，打开<code>/etc/vim/vimrc</code>添加内容如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; 配置</span></span><br><span class="line"><span class="comment">&quot; 开启文件检测</span></span><br><span class="line"><span class="keyword">filetype</span> <span class="built_in">indent</span> <span class="keyword">on</span></span><br><span class="line"><span class="comment">&quot; 缩进</span></span><br><span class="line"><span class="keyword">set</span> autoindent</span><br><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> expandtab</span><br><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">4</span></span><br><span class="line"><span class="comment">&quot; 外观</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">nu</span></span><br><span class="line"><span class="keyword">set</span> textwidth=<span class="number">80</span></span><br><span class="line"><span class="keyword">set</span> ruler</span><br><span class="line"><span class="comment">&quot; 搜索</span></span><br><span class="line"><span class="keyword">set</span> showmatch</span><br><span class="line"><span class="keyword">set</span> hlsearch</span><br><span class="line"><span class="keyword">set</span> incsearch</span><br><span class="line"><span class="keyword">set</span> ignorecase</span><br></pre></td></tr></table></figure>
+<h2 id="JDK配置"><a href="#JDK配置" class="headerlink" title="JDK配置"></a>JDK配置</h2><p>下载Linux版的jdk<br>提供一个jdk1.8的包——<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ZCvfVAZzVPLzirRBefcn0g">jdk-8u161-linux-x64.tar.gz</a><br>提取码: 5rja<br>解压压缩包，获的jdk的文件夹<code>jdk1.8.0_161</code>，将文件夹放到合适的位置。<br>修改<code>/etc/profile</code>文件，在文件末尾添加内容如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#set java env</span><br><span class="line">export JAVA_HOME=/usr/lib/jdk/jdk1.<span class="number">8.0</span>_161  # 记得修改成你的jdk文件夹名</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>重新加载&#x2F;etc&#x2F;profile  </p>
+<pre><code class="bash">$ source /etc/profile
+</code></pre>
+<p>注册服务并建立软链接  </p>
+<pre><code class="bash">$ update-alternatives --install /usr/bin/java \
+java /usr/lib/jdk/jdk1.8.0_161/bin/java 300
+$ update-alternatives --install /usr/bin/javac \
+javac /usr/lib/jdk/jdk1.8.0_161/bin/javac 300
+</code></pre>
+<p>查看安装是否成功：  </p>
+<pre><code class="bash">$ java -version  
+java version &quot;1.8.0_161&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_161-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
+</code></pre>
+<p>返回Java版本信息，则配置成功。</p>
+<h2 id="Ubuntu换清华源"><a href="#Ubuntu换清华源" class="headerlink" title="Ubuntu换清华源"></a>Ubuntu换清华源</h2><p>参考链接：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=427606780.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="82e4646b42761428bdc5"
+        data-cs="f3c1963d2ce3c608bb9cf91cb8bad064c1e66f09"
+        data-r="mrgaodi.github.io"
+        data-o="mrgaodi"
+        data-a="mrgaodi"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

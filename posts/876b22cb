@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>笔记-Ubuntu美化 - Gao·Di</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="GaoDi,"> 
+    <meta name="description" content="笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程
+
+安装gnome-tweak-tool  1$ sudo apt install gnome-tweak-tool
+,"> 
+    <meta name="author" content="GaoDi"> 
+    <link rel="alternative" href="atom.xml" title="Gao·Di" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="笔记-Ubuntu美化 - Gao·Di"/>
+    <meta name="twitter:description" content="笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程
+
+安装gnome-tweak-tool  1$ sudo apt install gnome-tweak-tool
+,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Gao·Di"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="笔记-Ubuntu美化 - Gao·Di"/>
+    <meta property="og:description" content="笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程
+
+安装gnome-tweak-tool  1$ sudo apt install gnome-tweak-tool
+,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Gao·Di</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrgaodi.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">笔记-Ubuntu美化</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">笔记-Ubuntu美化</h1>
+        <div class="stuff">
+            <span>二月 25, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><strong>笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程</strong></p>
+<ul>
+<li>安装gnome-tweak-tool  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure></li>
+<li>安装gnome-shell-extensions  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install gnome-shell-extensions</span><br></pre></td></tr></table></figure></li>
+<li>安装gnome-shell-extension-dashtodock  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install gnome-shell-extension-dashtodock</span><br></pre></td></tr></table></figure>
+安装完以上3个软件后，重启下电脑</li>
+</ul>
+<ol>
+<li>找到安装好的“<code>优化</code>”软件，点“<code>扩展</code>”，打开“<code>User themes</code>”插件，在“<code>优化</code>”首页，选择主题、图标和shell的样式。  <table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-001.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-002.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+<li>在“<code>扩展</code>”中找到“<code>Dash to dock</code>”，点“<code>⚙</code>”，取消“<code>面板模式：延伸到屏幕边缘</code>”的勾选。———<em>注意：不要打开该扩展，不然会出现两个dock。</em><table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-003.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-004.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+<li>下载桌面主题和图标<br>gnome主题下载网址：<a target="_blank" rel="noopener" href="https://www.gnome-look.org/">https://www.gnome-look.org/</a><br>我使用的主题和图标：<br>桌面主题是：<a target="_blank" rel="noopener" href="https://www.pling.com/s/Gnome/p/1275087/">McMojave</a><br>图标主题：<a target="_blank" rel="noopener" href="https://www.pling.com/s/Gnome/p/1166289/">Papirus</a><br>shell主题：McMojave 自带的shell主题  </li>
+<li>美化结果：<table>
+<thead>
+<tr>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-005.png"></th>
+<th align="center"><img src="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/ubuntu-beautify-006.png"></th>
+</tr>
+</thead>
+</table>
+</li>
+</ol>
+<ul>
+<li>终端<br>打开本地的终端配置文件<code>~/.bashrc</code>，按以下内容修改<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;$color_prompt&quot;</span> = yes ]; then</span><br><span class="line">    # PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ &#x27;</span> 原本的配置</span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\[\033[01;36m\]&gt;\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\] \[\033[01;32m\]\$\[\033[00m\] &#x27;</span> 修改之后的配置</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    # PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;\u@\h:\w\$ &#x27;</span> 原来的配置</span><br><span class="line">    PS1=<span class="string">&#x27;$&#123;debian_chroot:+($debian_chroot)&#125;&gt; \W \$ &#x27;</span> 修改之后的配置</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+[\033[01;34m]：字符颜色<br>\W：终端上只显示当前文件夹的名字<br>\w：显示全部文件路径<br>\h：机器名<br>\u：用户名  </li>
+<li>修改登陆界面的背景<br>选择一张喜欢的图片放到<code>/usr/share/backgrounds/</code>目录下。<br>打开<code>/etc/alternatives/gdm3.css</code>，找到<code>lockDialogGroup</code>对其进行修改。</li>
+</ul>
+<pre><code class="vim">#lockDialogGroup &#123;
+    /* background: #2c001e url(resource:///org/gnome/shell/theme/noise-texture.png); */
+    background: #2c001e url(file:///usr/share/backgrounds/xxx.jpg);  /*你选择的图片的路径*/
+    background-repeat: no-repeat; /* repeat */
+    background-size: cover; /*新增*/
+    background-position: center; /*新增*/
+    &#125;
+</code></pre>
+<p>重启电脑，再次打开时你就会发现登陆界面的背景已经变成了你选择的图片了。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=430685732.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="82e4646b42761428bdc5"
+        data-cs="f3c1963d2ce3c608bb9cf91cb8bad064c1e66f09"
+        data-r="mrgaodi.github.io"
+        data-o="mrgaodi"
+        data-a="mrgaodi"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

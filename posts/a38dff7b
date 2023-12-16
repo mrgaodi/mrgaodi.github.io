@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>笔记-hexo博客的搭建 - Gao·Di</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="GaoDi,"> 
+    <meta name="description" content="运行docker的node容器笔记-Docker容器运行
+在docker的node容器中搭建hexo博客——简单记载
+进入node-alpine容器，修改apk命令的数据源：a. 打开/etc/ap,"> 
+    <meta name="author" content="GaoDi"> 
+    <link rel="alternative" href="atom.xml" title="Gao·Di" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="笔记-hexo博客的搭建 - Gao·Di"/>
+    <meta name="twitter:description" content="运行docker的node容器笔记-Docker容器运行
+在docker的node容器中搭建hexo博客——简单记载
+进入node-alpine容器，修改apk命令的数据源：a. 打开/etc/ap,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Gao·Di"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="笔记-hexo博客的搭建 - Gao·Di"/>
+    <meta property="og:description" content="运行docker的node容器笔记-Docker容器运行
+在docker的node容器中搭建hexo博客——简单记载
+进入node-alpine容器，修改apk命令的数据源：a. 打开/etc/ap,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Gao·Di</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://mrgaodi.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">笔记-hexo博客的搭建</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">笔记-hexo博客的搭建</h1>
+        <div class="stuff">
+            <span>六月 06, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="运行docker的node容器"><a href="#运行docker的node容器" class="headerlink" title="运行docker的node容器"></a>运行docker的node容器</h3><p><a href="../3">笔记-Docker容器运行</a></p>
+<h3 id="在docker的node容器中搭建hexo博客——简单记载"><a href="#在docker的node容器中搭建hexo博客——简单记载" class="headerlink" title="在docker的node容器中搭建hexo博客——简单记载"></a>在docker的node容器中搭建hexo博客——简单记载</h3><ol>
+<li>进入node-alpine容器，修改apk命令的数据源：<br>a. 打开<code>/etc/apk/repositories</code><br>b. 将里面的<code>dl-cdn.alpinelinux.org</code>改成<code>mirrors.aliyun.com</code>，保存退出即可<br>c. 执行：<code>apk update</code>  </li>
+<li>安装git、openssh-client、hexo-cli：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ apk add git</span><br><span class="line">$ apk add openssh-client</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+npm淘宝源：<code>--registry=https://registry.npm.taobao.org</code>  </li>
+<li>创建博客所在的文件，进入文件中，执行初始化命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line"><span class="comment"># 如果初始没有彻底成功，在npm下载插件的时候报错执行下面命令:</span></span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></li>
+<li>去GitHub找自己喜欢的hexo主题</li>
+<li>连接到GitHub<br>a. 设置git的用户和邮箱  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;your name&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;your@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+b. 生成密钥<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C your@email.com</span><br></pre></td></tr></table></figure>
+c. 将<code>~/.ssh/</code>目录下的<code>id_rsa.pub</code>文件内容复制到GitHub上，并测试。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+当返回 “<code>Hi your name！you&#39;ve successfully authenticated ...</code>“，表示你已经连接GitHub成功。</li>
+<li>hexo上传到GitHub的插件——<code>hexo-deployer-git</code><br>修改博客根目录下的<code>_config.yml</code>文件  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:mrgaodi/mrgaodi.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+使用 <code>hexo g</code> &amp;&amp; <code>hexo d</code> 进行提交  </li>
+<li>博客备份<br>a. 从GitHub上把自己的仓库拉下来，进入拉取的文件夹内，将除<code>.git</code>和<code>.gitignore</code>外的文件全部清空，把本地博客文件夹下的内容copy的仓库文件夹中，编写<code>.gitignore</code>文件，选择哪些文件不上传到GitHub。<br>b. git创建一个新分支<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建本地分支</span></span><br><span class="line">$ git branch hexo</span><br><span class="line"><span class="comment"># 切换到新分支</span></span><br><span class="line">$ git checkout hexo</span><br><span class="line"><span class="comment"># 将本地分支推送到GitHub上</span></span><br><span class="line">$ git push origin hexo</span><br><span class="line"><span class="comment"># 提交代码到GitHub上</span></span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">&#x27;提交的笔记&#x27;</span></span><br><span class="line">$ git push origin hexo</span><br></pre></td></tr></table></figure>
+附：我的<code>.gitinore</code>内容<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.<span class="built_in">log</span></span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">package-lock.json</span><br><span class="line">yarn.lock</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="http://music.163.com/song/media/outer/url?id=468176711.mp3">
+            </audio>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="82e4646b42761428bdc5"
+        data-cs="f3c1963d2ce3c608bb9cf91cb8bad064c1e66f09"
+        data-r="mrgaodi.github.io"
+        data-o="mrgaodi"
+        data-a="mrgaodi"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
