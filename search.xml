@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>笔记-Docker容器运行</title>
-    <url>/posts/8fc7338f</url>
+    <url>/posts/8fc7338f.html</url>
     <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历</strong></p>
 <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="更换镜像源"><a href="#更换镜像源" class="headerlink" title="更换镜像源"></a>更换镜像源</h3><p>在<code>/etc/docker</code>目录下创建<code>daemon.json</code>文件，并添加如下内容：</p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;https://kfwkfulq.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://2lqq34jg.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://pee6w651.mirror.aliyuncs.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;https://registry.docker-cn.com&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;dns&quot;</span>: [<span class="string">&quot;8.8.8.8&quot;</span>,<span class="string">&quot;8.8.4.4&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -43,7 +43,7 @@ mysql5.7的配置文件：<a href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/
   </entry>
   <entry>
     <title>笔记-Ubuntu美化</title>
-    <url>/posts/876b22cb</url>
+    <url>/posts/876b22cb.html</url>
     <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程</strong></p>
 <ul>
 <li>安装gnome-tweak-tool  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt install gnome-tweak-tool</span><br></pre></td></tr></table></figure></li>
@@ -105,7 +105,7 @@ mysql5.7的配置文件：<a href="https://cdn.jsdelivr.net/gh/mrgaodi/CDN/file/
   </entry>
   <entry>
     <title>笔记-Ubuntu配置</title>
-    <url>/posts/94fe0e80</url>
+    <url>/posts/94fe0e80.html</url>
     <content><![CDATA[<p><strong>笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息</strong></p>
 <h2 id="Python3配置"><a href="#Python3配置" class="headerlink" title="Python3配置"></a>Python3配置</h2><ul>
 <li>pip换国内源<br>进入到个人的家目录（<code>~</code>）下，在该目录下创建<code>.pip</code>文件夹，在<code>pip</code>文件夹下创建<code>pip.conf</code>文件，并在<code>pip.conf</code>文件下添加内容如下：<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">timeout = <span class="number">6000</span></span><br><span class="line"><span class="built_in">index</span>-url = https://pypi.tuna.tsinghua.edu.<span class="keyword">cn</span>/simple</span><br><span class="line">trusted-host = pypi.tuna.tsinghua.edu.<span class="keyword">cn</span></span><br></pre></td></tr></table></figure></li>
@@ -143,7 +143,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
   </entry>
   <entry>
     <title>笔记-hexo博客的搭建</title>
-    <url>/posts/a38dff7b</url>
+    <url>/posts/a38dff7b.html</url>
     <content><![CDATA[<h3 id="运行docker的node容器"><a href="#运行docker的node容器" class="headerlink" title="运行docker的node容器"></a>运行docker的node容器</h3><p><a href="../3">笔记-Docker容器运行</a></p>
 <h3 id="在docker的node容器中搭建hexo博客——简单记载"><a href="#在docker的node容器中搭建hexo博客——简单记载" class="headerlink" title="在docker的node容器中搭建hexo博客——简单记载"></a>在docker的node容器中搭建hexo博客——简单记载</h3><ol>
 <li>进入node-alpine容器，修改apk命令的数据源：<br>a. 打开<code>/etc/apk/repositories</code><br>b. 将里面的<code>dl-cdn.alpinelinux.org</code>改成<code>mirrors.aliyun.com</code>，保存退出即可<br>c. 执行：<code>apk update</code>  </li>
