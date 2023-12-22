@@ -1,12 +1,13 @@
 ---
 title: 笔记-hexo博客的搭建
-date: 2020-06-06 13:20:32
 tags:
-    - hexo
-categories: 
-    - 笔记
-cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-004.jpg
-mp3: http://music.163.com/song/media/outer/url?id=468176711.mp3
+  - hexo
+categories:
+  - 笔记
+cover: 'https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-004.jpg'
+mp3: 'http://music.163.com/song/media/outer/url?id=468176711.mp3'
+abbrlink: a38dff7b
+date: 2020-06-06 13:20:32
 ---
 ### 运行docker的node容器
 [笔记-Docker容器运行](../3)

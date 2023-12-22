@@ -1,12 +1,13 @@
 ---
 title: 笔记-Ubuntu配置
-date: 2020-02-25 12:29:33
 tags:
-    - Ubuntu
+  - Ubuntu
 categories:
-    - 笔记
-cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-002.jpg
-mp3: http://music.163.com/song/media/outer/url?id=427606780.mp3
+  - 笔记
+cover: 'https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-002.jpg'
+mp3: 'http://music.163.com/song/media/outer/url?id=427606780.mp3'
+abbrlink: 94fe0e80
+date: 2020-02-25 12:29:33
 ---
 **笔记小记：该篇笔记记录了个人在更换成Ubuntu18.04系统后，常用的一些配置信息**
 ## Python3配置

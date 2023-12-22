@@ -1,12 +1,13 @@
 ---
 title: 笔记-Docker容器运行
-date: 2020-02-27 13:20:32
 tags:
-    - docker
-categories: 
-    - 笔记
-cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-003.jpg
-mp3: http://music.163.com/song/media/outer/url?id=468176711.mp3
+  - docker
+categories:
+  - 笔记
+cover: 'https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-003.jpg'
+mp3: 'http://music.163.com/song/media/outer/url?id=468176711.mp3'
+abbrlink: 8fc7338f
+date: 2020-02-27 13:20:32
 ---
 **笔记小记：该篇笔记记录了个人在简单使用docker容器时的经历**
 ## Docker

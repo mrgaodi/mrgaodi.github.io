@@ -1,12 +1,13 @@
 ---
 title: 笔记-Ubuntu美化
-date: 2020-02-25 15:11:47
 tags:
-    - Ubuntu
-categories: 
-    - 笔记
-cover: https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-001.jpg
-mp3: http://music.163.com/song/media/outer/url?id=430685732.mp3
+  - Ubuntu
+categories:
+  - 笔记
+cover: 'https://cdn.jsdelivr.net/gh/mrgaodi/CDN/img/img-001.jpg'
+mp3: 'http://music.163.com/song/media/outer/url?id=430685732.mp3'
+abbrlink: 876b22cb
+date: 2020-02-25 15:11:47
 ---
 **笔记小记：该篇笔记记录了个人在换成Ubuntu18.04系统后，对系统的美化过程**
 - 安装gnome-tweak-tool  
